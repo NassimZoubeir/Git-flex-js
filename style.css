@@ -1,0 +1,136 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+.grid-container {
+    display: grid;
+    grid-template-areas: "header header header header header header header header" "menu menu main main main right right right" "menu menu footer footer footer footer footer footer";
+}
+.grid-container2 {
+    display: grid;
+    /* definition du nombre de colonne et ligne de la grille */
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.item1, .item2, .item3, .item4, .item5, .itema, .itemb, .itemc, .itemd, .iteme{
+    padding: 50px;
+    border: 5px solid black;
+}
+/* version 1 */
+.item1 {
+    background-color: aqua;
+    grid-area: header;
+}
+.item2 {
+    background-color: red;
+    grid-area: menu;
+}
+.item3 {
+    background-color: green;
+    grid-area: main;
+}
+.item4 {
+    background-color: yellow;
+    grid-area: right;
+}
+.item5 {
+    background-color: blue;
+    grid-area: footer;
+}
+/* version 2 */
+.itema {
+    grid-column: 1/9;
+    grid-row:1/2;
+}
+.itemb {
+    grid-column: 1/3;
+    grid-row:2/4;
+}
+.itemc {
+    grid-column: 3/6;
+    grid-row:2/3;}
+.itemd {
+    grid-column: 6/9;
+    grid-row:2/3;
+}
+.iteme {
+    grid-column: 3/9;
+    grid-row:3/4;
+}
+/* media queries pour mobile */
+@media screen and (max-width: 576px) {
+    .grid-container2 {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+    .itemb {
+        grid-column: 1/9;
+        grid-row:2/3;
+    }
+    .itemc {
+        grid-column: 1/9;
+        grid-row:3/4;}
+    .itemd {
+        grid-column: 1/9;
+        grid-row:4/5;
+    }
+    .iteme {
+        grid-column: 1/9;
+        grid-row:5/6;
+    }
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+}
+/* media queries pour tablette */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .grid-container2 {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .itemb {
+        grid-column: 1/9;
+        grid-row:2/3;
+    }
+    .itemc {
+        grid-column: 1/5;
+        grid-row:3/4;}
+    .itemd {
+        grid-column: 5/9;
+        grid-row:3/4;
+    }
+    .iteme {
+        grid-column: 1/9;
+        grid-row:4/5;
+    }
+}
+/* exemple flex */
+.menu ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    flex-wrap: wrap;
+    /* regles d'animation pour le menu */
+    transform: translateX(-100%);
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+}
+
+/* menu animation avec js page menu.html*/
+#buttonMenu {
+    background-color: blue;
+    padding: 20px;
+    color:white;
+}
+/* classe pour ouverture menu, cette classe est ajoutée ou enlevée au click */ 
+.open {
+    transform: translateX(0) !important;
+    transition-timing-function: ease-out;
+    transition: 0.2s;
+}
